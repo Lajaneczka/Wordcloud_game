@@ -1,0 +1,26 @@
+{
+  "words": [
+      {
+          "id": 1,
+          "question": "select animals",
+          "allWords": ["hole", "sofa", "pear", "tiger", "oatmeal", "square","nut", "cub", "shirt", "tub", "passenger", "cow"],
+          "goodWords": ["tiger", "cow"]
+      },
+      {
+          "id": 2,
+          "question": "select colors",
+          "allWords": ["jeans", "existence", "ink", "red", "blue", "yellow", "laugh", "behavior", "expansion","white", "black", "cake"],
+          "goodWords":["red", "blue", "yellow", "white", "black"]
+      },
+      {
+          "id": 3,
+          "question": "select vehicles",
+          "allWords": ["belief", "wire", "car", "bus", "star", "river", "hat", "skirt", "train"],
+          "goodWords": [ "car", "bus", "train"]
+      }
+  ]
+}
+
+
+
+
