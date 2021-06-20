@@ -1,31 +1,29 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import {useState, useEffect} from "react";
+import {PlayWords} from "./PlayWords";
 
 export const Play = () => {
-  const [words, setWords] = useState([]);
-  const [text, setText] = useState("check answear");
+    const [words, setWords] = useState(false);
+    const [text, setText] = useState("check answear");
 
-  useEffect(() => {
-    fetch("http://localhost:3000/words")
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-        setWords(data);
-      });
-  }, []);
+    const randomnumber = Math.floor(Math.random() * 3);
 
-  const handleClick = () => {
-    setText("finish game");
-  };
-  return (
-    <div className="container">
-      <h3>question</h3>
-      <div className="words__container" />
-      <Link to="/score">
-        <button className="btn" onClick={handleClick}>
-          {text}
-        </button>
-      </Link>
-    </div>
-  );
+    useEffect(() => {
+        fetch("http://localhost:3000/words")
+            .then((resp) => resp.json())
+            .then((data) => {
+                setWords(data);
+            }).catch(err => console.log(err))
+    }, []);
+
+
+    if (!words) {
+        return "Trwa ładowanie"
+    }
+    return (<>
+
+            <PlayWords data={(words[randomnumber])}/>
+
+        </>
+    );
 };
+
