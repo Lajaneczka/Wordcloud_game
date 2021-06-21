@@ -1,33 +1,42 @@
-.words__main {
+.game {
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.words__container {
-    width: 600px;
+
+.game__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 70vw;
     height: 300px;
     border: 1px solid #000;
     margin: 20px 0px 10px;
+    padding: 30px;
 }
 
+.game__container__wrap {
+    padding: 0 5vw;
+}
 
 .active {
     color: grey;
- 
 }
-.good{
+
+.good {
     color: green;
 }
 
-.good-comment{
+.good-comment {
     color: lawngreen;
 }
 
-.bad{
+.bad {
     color: red;
 }
-.bad-comment{
-    color:tomato;
+
+.bad-comment {
+    color: tomato;
 }

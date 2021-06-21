@@ -1,10 +1,9 @@
 import {useState, useEffect} from "react";
-import {PlayWords} from "./PlayWords";
+import {Game} from "./Game";
 
 export const Play = () => {
     const [words, setWords] = useState(false);
     const [text, setText] = useState("check answear");
-
     const randomnumber = Math.floor(Math.random() * 3);
 
     useEffect(() => {
@@ -15,14 +14,11 @@ export const Play = () => {
             }).catch(err => console.log(err))
     }, []);
 
-
     if (!words) {
         return "Trwa ładowanie"
     }
     return (<>
-
-            <PlayWords data={(words[randomnumber])}/>
-
+            <Game data={(words[randomnumber])}/>
         </>
     );
 };

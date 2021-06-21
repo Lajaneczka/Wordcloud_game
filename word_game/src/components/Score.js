@@ -2,12 +2,12 @@ import {useContext} from "react"
 import {UserContext} from "./UserContext"
 
 export const Score = () => {
-    const {value, setValue, score} = useContext(UserContext);
+    const {value, score} = useContext(UserContext);
     return (
-        <div className="container">
+        <section className="container">
             <h3>
                 Congratulations {value} <br/>
                 Your score is {score} </h3>
-        </div>
+        </section>
     )
 }

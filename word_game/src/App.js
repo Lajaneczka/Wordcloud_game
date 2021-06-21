@@ -8,7 +8,7 @@ import {useState} from 'react';
 
 function App() {
     const [value, setValue] = useState('');
-    const [ score, setScore ] = useState(0);
+    const [score, setScore ] = useState(0);
 
     return (
         <Router>
