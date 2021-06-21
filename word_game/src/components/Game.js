@@ -12,11 +12,13 @@ export const Game = ({data}) => {
    const goodWords = data.goodWords;
 
     const handleClick = (el) => {
+        if(mode){
         setSelectedWord(words => {
             return words.includes(el)
                 ? words.filter((word) => word !== el)
                 : [...words, el];
         });
+    }
     };
 
     const check = () => {
