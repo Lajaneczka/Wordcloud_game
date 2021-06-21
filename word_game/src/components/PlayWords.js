@@ -1,12 +1,19 @@
-import {useState} from "react";
-import {Link} from "react-router-dom";
+import {useState, useContext} from "react";
+import {UserContext } from "./UserContext";
+import { useHistory } from "react-router-dom";
 
 export const PlayWords = ({data}) => {
     const [selectedWords, setSelectedWord] = useState([]);
+    const [mode, setMode] = useState(true);
+    const { score, setScore} = useContext(UserContext);
+    let history = useHistory();
+
+const all_words = data.allWords
+   const good_words = data.goodWords
+   const bad_words = all_words.filter((word) => !good_words.includes(word))
 
     const handleClick = (el) => {
         setSelectedWord(words => {
-            console.log(words)
             return words.includes(el)
                 ? words.filter((word) => word !== el)
                 : [...words, el];
@@ -19,15 +26,24 @@ export const PlayWords = ({data}) => {
         if (data.goodWords.includes(el.innerText)){
             el.classList.add('good');
             el.innerHTML = '<span class="good-comment">Good</span>' + el.innerHTML
-             console.log(el.innerText, "el.innerHtml")
         }
         else {
             el.classList.add('bad')
-             el.innerHTML = '<span class="bad-comment">Bad</span>' + el.innerHTML
+            el.innerHTML = '<span class="bad-comment">Bad</span>' + el.innerHTML
              }
     })
+    setMode(false)
 }
-    
+
+const sumScores=()=>{
+    let wrong_answers = selectedWords.filter((word) => !good_words.includes(word))
+    let good_answers = selectedWords.filter((word) => !bad_words.includes(word))
+    let omitted_answers = good_words.filter((word) => !good_answers.includes(word))
+
+    setScore(good_answers.length * 2 - (wrong_answers.length + omitted_answers.length))
+  history.push("/score");
+}
+
     return (<>
             <div className="words__main">
                 <div>{data.question}</div>
@@ -37,10 +53,7 @@ export const PlayWords = ({data}) => {
                            key={el}>{el}</p>
                     </div>)}
                 </div>
-                <button onClick={check} className="btn">check answers</button>
-       {/* <Link to="/score">
-                    <button onClick={check} className="btn">check answers</button>
-                </Link> */}
+                <button onClick={mode ? check : sumScores} className="btn">{mode ? " check answers": "finish game"}</button>
             </div>
         </>
     )
