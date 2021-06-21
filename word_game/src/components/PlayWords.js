@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 
 export const PlayWords = ({data}) => {
     const [selectedWords, setSelectedWord] = useState([]);
+
     const handleClick = (el) => {
         setSelectedWord(words => {
             console.log(words)
@@ -13,13 +14,20 @@ export const PlayWords = ({data}) => {
     };
 
     const check = () => {
-        return selectedWords.filter(el => {
-            if (data.goodWords.includes(el)) {
-                return el
-            }
-        })
-    }
-
+    let elements= document.getElementsByClassName("active")
+    Array.from(elements).forEach(el=>{
+        if (data.goodWords.includes(el.innerText)){
+            el.classList.add('good');
+            el.innerHTML = '<span class="good-comment">Good</span>' + el.innerHTML
+             console.log(el.innerText, "el.innerHtml")
+        }
+        else {
+            el.classList.add('bad')
+             el.innerHTML = '<span class="bad-comment">Bad</span>' + el.innerHTML
+             }
+    })
+}
+    
     return (<>
             <div className="words__main">
                 <div>{data.question}</div>
@@ -29,9 +37,10 @@ export const PlayWords = ({data}) => {
                            key={el}>{el}</p>
                     </div>)}
                 </div>
-                <Link to="/score">
+                <button onClick={check} className="btn">check answers</button>
+       {/* <Link to="/score">
                     <button onClick={check} className="btn">check answers</button>
-                </Link>
+                </Link> */}
             </div>
         </>
     )
