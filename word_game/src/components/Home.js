@@ -9,7 +9,7 @@ export const Home = () => {
             <section className="container">
                 <div className="home__wrapper">
                     <h1>Wordcloud game</h1>
-                    <div className="input-areas">
+                    <div className="input__areas">
                         <form className="form">
                             <input
                                 className="input"

@@ -1,42 +1,50 @@
 .game {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .game__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 70vw;
-    height: 300px;
-    border: 1px solid #000;
-    margin: 20px 0px 10px;
-    padding: 30px;
+  width: 70vw;
+  height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border: 1px solid #000;
+  margin: 20px 0px 10px;
+  padding: 30px;
 }
 
 .game__container__wrap {
-    padding: 0 5vw;
+  display: flex;
+  padding: 0 5vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
 }
 
 .active {
-    color: grey;
+  color: #808080;
 }
 
 .good {
-    color: green;
+  color: #00ff00;
 }
 
+
 .good-comment {
-    color: lawngreen;
+  color: #93f600;
+  display: flex;
 }
 
 .bad {
-    color: red;
+  color: #ff0000;
 }
 
 .bad-comment {
-    color: tomato;
+  color: #ff6347;
+  display: flex;
 }

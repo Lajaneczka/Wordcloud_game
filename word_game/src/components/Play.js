@@ -3,7 +3,6 @@ import {Game} from "./Game";
 
 export const Play = () => {
     const [words, setWords] = useState(false);
-    const [text, setText] = useState("check answear");
     const randomnumber = Math.floor(Math.random() * 3);
 
     useEffect(() => {
